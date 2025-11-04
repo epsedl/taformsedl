@@ -27,8 +27,7 @@ function devLog(...args) {
 // Use only the cors package, with correct config
 app.use(cors({
   origin: [
-    'https://taformsed.netlify.app',
-    'http://0.0.0.0:3004'
+    'https://taformsed.netlify.app'
   ],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
@@ -39,8 +38,7 @@ app.use(cors({
 // Ensure CORS preflight requests are handled for all routes
 app.options('*', cors({
   origin: [
-    'https://taformsed.netlify.app',
-    'http://0.0.0.0:3004'
+    'https://taformsed.netlify.app'
   ],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
@@ -52,10 +50,10 @@ app.use(express.json());
 
 // Database connection
 const db = mysql.createConnection({
-  host: process.env.DB_HOST || 'localhost',
-  user: process.env.DB_USER || 'root',
-  password: process.env.DB_PASSWORD || 'Sedl@2024',
-  database: process.env.DB_NAME || 'expense_tracker'
+  host: process.env.DB_HOST ,
+  user: process.env.DB_USER ,
+  password: process.env.DB_PASSWORD ,
+  database: process.env.DB_NAME
 });
 
 db.connect((err) => {
@@ -200,8 +198,7 @@ app.use((err, req, res, next) => {
   res.status(500).json({ message: 'Something broke!' });
 });
 
-// Start server
-const PORT = process.env.PORT || 8000;
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+// REMOVE or comment out this line for Vercel serverless deployment:
+// app.listen(PORT, () => {
+//   console.log(`Server running on port ${PORT}`);
+// });
