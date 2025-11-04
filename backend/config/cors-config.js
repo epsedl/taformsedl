@@ -2,9 +2,7 @@ const corsOptions = {
     origin: (origin, callback) => {
         // Allow requests from any origin that matches the pattern
         const allowedOrigins = [
-            /^https:\/\/taformsed\.netlify\.app$/,
-            /^http:\/\/172\.26\.0\.217:3004$/,
-            /^http:\/\/\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}:3004$/
+            /^https:\/\/taformsed\.netlify\.app$/
         ];
         
         if (!origin || allowedOrigins.some(pattern => pattern.test(origin))) {

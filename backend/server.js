@@ -27,9 +27,8 @@ function devLog(...args) {
 // Use only the cors package, with correct config
 app.use(cors({
   origin: [
-    'http://172.26.0.217:3004',
-    'http://0.0.0.0:3004',
-    'https://taformsed.netlify.app' // <-- Netlify domain added
+    'https://taformsed.netlify.app',
+    'http://0.0.0.0:3004'
   ],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
@@ -40,9 +39,8 @@ app.use(cors({
 // Ensure CORS preflight requests are handled for all routes
 app.options('*', cors({
   origin: [
-    'http://172.26.0.217:3004',
-    'http://0.0.0.0:3004',
-    'https://taformsed.netlify.app' // <-- Netlify domain added
+    'https://taformsed.netlify.app',
+    'http://0.0.0.0:3004'
   ],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
